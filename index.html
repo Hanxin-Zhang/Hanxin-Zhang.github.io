@@ -15,13 +15,14 @@
     <main class="page">
       <section class="intro">
         <div class="intro-text">
-          <h1>Hanxin Zhang / 张含鑫</h1>
+          <p class="kicker">CS PhD Student / Embodied AI</p>
+          <h1><span>Hanxin Zhang /</span> <span class="chinese-name">张含鑫</span></h1>
           <p class="email">hz273 [at] leicester [dot] ac [dot] uk</p>
           <p>
             I am a second-year CS PhD student at the University of Leicester,
-            advised by <a href="https://le.ac.uk/people/daniel-hao">Dr Daniel Zhou Hao</a>
-            and <a href="https://www.birmingham.ac.uk/staff/profiles/metallurgy/dong-hongbiao">Professor Hongbiao Dong FREng</a>,
-            affiliated with <a href="https://www.danilab.org/">DANiLab</a> in
+            advised by <a href="https://le.ac.uk/people/daniel-hao" target="_blank" rel="noopener noreferrer">Dr Daniel Zhou Hao</a>
+            and <a href="https://www.birmingham.ac.uk/staff/profiles/metallurgy/dong-hongbiao" target="_blank" rel="noopener noreferrer">Professor Hongbiao Dong FREng</a>,
+            affiliated with <a href="https://www.danilab.org/" target="_blank" rel="noopener noreferrer">DANiLab</a> in
             the School of Computing and Mathematical Sciences.
           </p>
           <p>
@@ -33,28 +34,40 @@
           </p>
 
           <nav class="links" aria-label="Profile links">
-            <a href="https://www.linkedin.com/in/hanxinzhang01/">LinkedIn</a>
+            <a href="https://www.linkedin.com/in/hanxinzhang01/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           </nav>
         </div>
 
         <div class="profile-photo">
-          <img src="images/myprofile.png" alt="Profile photo">
+          <button class="profile-trigger" type="button" aria-label="View profile photo" data-full="images/myprofile.png" data-alt="Hanxin Zhang profile photo enlarged preview">
+            <img src="images/myprofile.png" alt="Profile photo">
+          </button>
         </div>
       </section>
 
       <section class="section">
         <h2>Research</h2>
         <p>
-          I am interested in vision-language-action (VLA) models, world action
-          models (WAM), and human-robot interaction, particularly toward
-          advancing embodied intelligence.
+          I am interested in robotic brains, including vision-language-action
+          (VLA) models, world action models (WAM), and human-robot interaction
+          (HRI), toward advancing embodied intelligence.
         </p>
+      </section>
 
+      <section class="section publications">
+        <h2>Publications</h2>
         <article class="item">
           <div class="item-media">
-            <img src="images/teaser.png" alt="Embodied Interpretability teaser">
+            <button class="image-trigger" type="button" aria-label="Play Embodied Interpretability video" data-media="video" data-full="images/papers/embodied-interpretability/video.mp4" data-poster="images/papers/embodied-interpretability/teaser.png" data-alt="Embodied Interpretability video preview">
+              <img src="images/papers/embodied-interpretability/teaser.png" alt="Embodied Interpretability teaser">
+              <span class="media-action" aria-hidden="true">play video</span>
+            </button>
           </div>
-          <div>
+          <div class="item-content">
+            <p class="venue">
+              <span class="venue-tag">ICML 2026</span>
+              <span class="venue-name">International Conference on Machine Learning</span>
+            </p>
             <h3>
               Embodied Interpretability: Linking Causal Understanding to
               Generalization in Vision-Language-Action Models
@@ -63,13 +76,160 @@
               <strong>Hanxin Zhang</strong>, Mingshuo Xu, Abdulqader Dhafer, Shigang Yue,
               Hongbiao Dong, Zhou Daniel Hao
             </p>
-            <p class="venue"><em>ICML</em>, 2026</p>
             <p class="item-links">
-              <a href="https://arxiv.org/abs/2605.00321">arXiv</a>
+              <a href="https://robot-future.github.io/vla-explain/" target="_blank" rel="noopener noreferrer">website</a>
+              <a href="https://icml.cc/virtual/2026/poster/63997" target="_blank" rel="noopener noreferrer">paper</a>
+              <a href="images/papers/embodied-interpretability/embodied-interpretability-linking-causal-understanding-to-generalization-in-vision-language-action-models.pdf" target="_blank" rel="noopener noreferrer">pdf</a>
+            </p>
+          </div>
+        </article>
+
+        <article class="item">
+          <div class="item-media">
+            <button class="image-trigger" type="button" aria-label="Play Intent-Handover video" data-media="video" data-full="images/papers/intent-handover/video.mp4" data-poster="images/papers/intent-handover/teaser.png" data-alt="Intent-Handover video preview">
+              <img src="images/papers/intent-handover/teaser.png" alt="Intent-Handover teaser">
+              <span class="media-action" aria-hidden="true">play video</span>
+            </button>
+          </div>
+          <div class="item-content">
+            <p class="venue">
+              <span class="venue-tag">IROS 2026</span>
+              <span class="venue-name">IEEE/RSJ International Conference on Intelligent Robots and Systems</span>
+            </p>
+            <h3>
+              Intent-Handover: Grounding Language in Human-Usage Regions for
+              Trustworthy Robot-to-Human Handovers
+            </h3>
+            <p class="authors">
+              <strong>Hanxin Zhang</strong>, Abdulqader Dhafer, Hongbiao Dong,
+              Zhou Daniel Hao
+            </p>
+            <p class="item-links">
+              <a href="https://robot-future.github.io/intent-handover/" target="_blank" rel="noopener noreferrer">website</a>
+              <a href="images/papers/intent-handover/intent-handover-grounding-language-in-human-usage-regions-for-trustworthy-robot-to-human-handovers.pdf" target="_blank" rel="noopener noreferrer">pdf</a>
+            </p>
+          </div>
+        </article>
+
+        <article class="item">
+          <div class="item-media">
+            <button class="image-trigger" type="button" aria-label="Play R2HandoverSim video" data-media="video" data-full="images/papers/r2handoversim/video.mp4" data-poster="images/papers/r2handoversim/teaser.png" data-alt="R2HandoverSim video preview">
+              <img src="images/papers/r2handoversim/teaser.png" alt="R2HandoverSim teaser">
+              <span class="media-action" aria-hidden="true">play video</span>
+            </button>
+          </div>
+          <div class="item-content">
+            <p class="venue">
+              <span class="venue-tag">IROS 2026</span>
+              <span class="venue-name">IEEE/RSJ International Conference on Intelligent Robots and Systems</span>
+            </p>
+            <h3>
+              R2HandoverSim: A Simulation Framework and Benchmark for
+              Robot-to-Human Object Handovers
+            </h3>
+            <p class="authors">
+              <strong>Hanxin Zhang</strong>, Abdulqader Dhafer, Hongbiao Dong,
+              Zhou Daniel Hao
+            </p>
+            <p class="item-links">
+              <a href="https://robot-future.github.io/r2handoversim/" target="_blank" rel="noopener noreferrer">website</a>
+              <a href="images/papers/r2handoversim/r2handoversim-a-simulation-framework-and-benchmark-for-robot-to-human-object-handovers.pdf" target="_blank" rel="noopener noreferrer">pdf</a>
             </p>
           </div>
         </article>
       </section>
     </main>
+
+    <div class="image-lightbox" id="image-lightbox" tabindex="-1" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Publication image preview" inert>
+      <div class="lightbox-panel">
+        <img class="lightbox-image" src="" alt="">
+        <video class="lightbox-video" controls playsinline hidden></video>
+      </div>
+    </div>
+
+    <script>
+      const imageTriggers = document.querySelectorAll('.image-trigger, .profile-trigger');
+      const publicationItems = document.querySelectorAll('.item');
+      const lightbox = document.querySelector('#image-lightbox');
+      const lightboxImage = lightbox.querySelector('.lightbox-image');
+      const lightboxVideo = lightbox.querySelector('.lightbox-video');
+      let activeImageTrigger = null;
+
+      function showCardAction(item) {
+        publicationItems.forEach((publicationItem) => {
+          if (publicationItem !== item) {
+            publicationItem.classList.remove('is-action-visible');
+          }
+        });
+        item.classList.add('is-action-visible');
+      }
+
+      function hideCardAction(item) {
+        item.classList.remove('is-action-visible');
+      }
+
+      function openLightbox(trigger) {
+        activeImageTrigger = trigger;
+        if (trigger.dataset.media === 'video') {
+          lightboxImage.hidden = true;
+          lightboxVideo.hidden = false;
+          lightboxVideo.poster = trigger.dataset.poster;
+          lightboxVideo.src = trigger.dataset.full;
+          lightboxVideo.setAttribute('aria-label', trigger.dataset.alt);
+          lightboxVideo.load();
+        } else {
+          lightboxVideo.hidden = true;
+          lightboxImage.hidden = false;
+          lightboxImage.src = trigger.dataset.full;
+          lightboxImage.alt = trigger.dataset.alt;
+        }
+        lightbox.setAttribute('aria-hidden', 'false');
+        lightbox.removeAttribute('inert');
+        document.body.classList.add('lightbox-open');
+        lightbox.focus();
+        if (trigger.dataset.media === 'video') {
+          lightboxVideo.play().catch(() => {});
+        }
+      }
+
+      function hideLightbox() {
+        lightbox.setAttribute('aria-hidden', 'true');
+        lightbox.setAttribute('inert', '');
+        document.body.classList.remove('lightbox-open');
+        lightboxVideo.pause();
+        lightboxVideo.removeAttribute('src');
+        lightboxVideo.load();
+        activeImageTrigger?.focus();
+      }
+
+      imageTriggers.forEach((trigger) => {
+        trigger.addEventListener('click', () => openLightbox(trigger));
+      });
+      publicationItems.forEach((item) => {
+        item.addEventListener('pointerdown', () => showCardAction(item));
+        item.addEventListener('pointerleave', () => hideCardAction(item));
+        item.addEventListener('focusin', () => showCardAction(item));
+        item.addEventListener('focusout', (event) => {
+          if (!item.contains(event.relatedTarget)) {
+            hideCardAction(item);
+          }
+        });
+      });
+      document.addEventListener('pointerdown', (event) => {
+        if (!event.target.closest('.item')) {
+          publicationItems.forEach((item) => hideCardAction(item));
+        }
+      });
+      lightbox.addEventListener('click', (event) => {
+        if (event.target === lightbox) {
+          hideLightbox();
+        }
+      });
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && lightbox.getAttribute('aria-hidden') === 'false') {
+          hideLightbox();
+        }
+      });
+    </script>
   </body>
 </html>
