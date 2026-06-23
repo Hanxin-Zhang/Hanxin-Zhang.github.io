@@ -92,8 +92,10 @@ body::before {
   z-index: -1;
   pointer-events: none;
   background:
-    linear-gradient(110deg, transparent 0%, rgba(11, 111, 203, 0.055) 22%, transparent 44%),
-    linear-gradient(250deg, transparent 10%, rgba(240, 146, 40, 0.05) 48%, transparent 72%);
+    linear-gradient(90deg, rgba(11, 111, 203, 0.072) 0%, rgba(11, 111, 203, 0.024) 13%, transparent 31%),
+    linear-gradient(270deg, rgba(240, 146, 40, 0.058) 0%, rgba(240, 146, 40, 0.022) 14%, transparent 32%),
+    linear-gradient(110deg, transparent 0%, rgba(11, 111, 203, 0.04) 22%, transparent 44%),
+    linear-gradient(250deg, transparent 10%, rgba(240, 146, 40, 0.038) 48%, transparent 72%);
   content: "";
 }
 
@@ -150,10 +152,59 @@ h3 {
   line-height: 1.32;
 }
 
+.item h3 {
+  color: var(--text);
+  transition: color 180ms ease, transform 180ms ease;
+}
+
+.item h3 span {
+  color: inherit;
+  transition: color 180ms ease;
+}
+
+.item:hover h3,
+.item:focus-within h3,
+.item.is-action-visible h3 {
+  transform: translateX(2px);
+}
+
+.item:hover h3 span,
+.item:focus-within h3 span,
+.item.is-action-visible h3 span {
+  color: #c2410c;
+}
+
 .page {
+  position: relative;
+  z-index: 2;
   width: min(calc(100% - 40px), 920px);
   margin: 0 auto;
-  padding: 52px 0 76px;
+  padding: 52px 0 28px;
+}
+
+.particle-current {
+  position: relative;
+  z-index: 1;
+  height: clamp(210px, 24vw, 300px);
+  margin-top: -32px;
+  background: transparent;
+  contain: layout paint;
+  overflow: hidden;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 18%, #000 82%, transparent 100%);
+  mask-image: linear-gradient(180deg, transparent 0%, #000 18%, #000 82%, transparent 100%);
+}
+
+.particle-current::before {
+  display: none;
+}
+
+.particle-current canvas {
+  position: relative;
+  z-index: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .intro {
@@ -249,6 +300,7 @@ h3 {
 }
 
 .publications {
+  position: relative;
   padding-top: 34px;
 }
 
@@ -260,7 +312,7 @@ h3 {
   align-items: start;
   padding: 18px;
   background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.68), rgba(255, 255, 255, 0.34) 58%, rgba(239, 247, 255, 0.34)),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.62), rgba(255, 255, 255, 0.34) 58%, rgba(242, 248, 255, 0.28)),
     var(--paper);
   border: 1px solid rgba(255, 255, 255, 0.92);
   border-radius: 8px;
@@ -268,8 +320,8 @@ h3 {
     inset 0 1px 0 rgba(255, 255, 255, 0.96),
     inset 0 -1px 0 rgba(255, 255, 255, 0.34),
     var(--shadow-soft);
-  backdrop-filter: blur(30px) saturate(1.45);
-  -webkit-backdrop-filter: blur(30px) saturate(1.45);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
   overflow: hidden;
   transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
 }
@@ -375,8 +427,8 @@ h3 {
     inset 0 1px 0 rgba(255, 255, 255, 0.38),
     inset 0 -1px 0 rgba(255, 255, 255, 0.08),
     0 8px 22px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(18px) saturate(1.45);
-  -webkit-backdrop-filter: blur(18px) saturate(1.45);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
   font-size: 12px;
   font-weight: 700;
   line-height: 1;
@@ -480,8 +532,8 @@ h3 {
     inset 0 1px 0 var(--glass-highlight),
     inset 0 -1px 0 rgba(255, 255, 255, 0.34),
     0 8px 20px rgba(23, 114, 208, 0.11);
-  backdrop-filter: blur(22px) saturate(1.5);
-  -webkit-backdrop-filter: blur(22px) saturate(1.5);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
   font-size: 12.5px;
   font-weight: 500;
   line-height: 1;
@@ -587,6 +639,12 @@ h3 {
   .page {
     width: min(calc(100% - 24px), 820px);
     padding-top: 30px;
+    padding-bottom: 24px;
+  }
+
+  .particle-current {
+    height: 210px;
+    margin-top: -26px;
   }
 
   .intro {

@@ -68,10 +68,10 @@
               <span class="venue-tag">ICML 2026</span>
               <span class="venue-name">International Conference on Machine Learning</span>
             </p>
-            <h3>
+            <h3><span>
               Embodied Interpretability: Linking Causal Understanding to
               Generalization in Vision-Language-Action Models
-            </h3>
+            </span></h3>
             <p class="authors">
               <strong>Hanxin Zhang</strong>, Mingshuo Xu, Abdulqader Dhafer, Shigang Yue,
               Hongbiao Dong, Zhou Daniel Hao
@@ -96,10 +96,10 @@
               <span class="venue-tag">IROS 2026</span>
               <span class="venue-name">IEEE/RSJ International Conference on Intelligent Robots and Systems</span>
             </p>
-            <h3>
+            <h3><span>
               Intent-Handover: Grounding Language in Human-Usage Regions for
               Trustworthy Robot-to-Human Handovers
-            </h3>
+            </span></h3>
             <p class="authors">
               <strong>Hanxin Zhang</strong>, Abdulqader Dhafer, Hongbiao Dong,
               Zhou Daniel Hao
@@ -123,10 +123,10 @@
               <span class="venue-tag">IROS 2026</span>
               <span class="venue-name">IEEE/RSJ International Conference on Intelligent Robots and Systems</span>
             </p>
-            <h3>
+            <h3><span>
               R2HandoverSim: A Simulation Framework and Benchmark for
               Robot-to-Human Object Handovers
-            </h3>
+            </span></h3>
             <p class="authors">
               <strong>Hanxin Zhang</strong>, Abdulqader Dhafer, Hongbiao Dong,
               Zhou Daniel Hao
@@ -139,6 +139,10 @@
         </article>
       </section>
     </main>
+
+    <section class="particle-current" aria-hidden="true">
+      <canvas id="particle-current-canvas"></canvas>
+    </section>
 
     <div class="image-lightbox" id="image-lightbox" tabindex="-1" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Publication image preview" inert>
       <div class="lightbox-panel">
@@ -230,6 +234,206 @@
           hideLightbox();
         }
       });
+
+      const particleCanvas = document.querySelector('#particle-current-canvas');
+
+      if (particleCanvas) {
+        const particleContext = particleCanvas.getContext('2d');
+        if (particleContext) {
+          const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+          let particleWidth = 0;
+          let particleHeight = 0;
+          let particleRatio = 1;
+          let particleAnimationFrame;
+          let particleIsVisible = false;
+          let lastParticleDraw = 0;
+          let particles = [];
+          const currentPointer = {
+            x: 0,
+            y: 0,
+            targetX: 0,
+            targetY: 0,
+            influence: 0,
+            targetInfluence: 0,
+            initialized: false
+          };
+
+          function resizeParticleCurrent() {
+            const bounds = particleCanvas.getBoundingClientRect();
+            particleRatio = Math.min(window.devicePixelRatio || 1, 1.35);
+            particleWidth = Math.max(1, Math.floor(bounds.width));
+            particleHeight = Math.max(1, Math.floor(bounds.height));
+            particleCanvas.width = Math.floor(particleWidth * particleRatio);
+            particleCanvas.height = Math.floor(particleHeight * particleRatio);
+            particleContext.setTransform(particleRatio, 0, 0, particleRatio, 0, 0);
+
+            const count = particleWidth < 640 ? 560 : 1250;
+            particles = Array.from({ length: count }, () => ({
+              u: Math.random(),
+              lane: (Math.random() - 0.5) * 2,
+              phase: Math.random() * Math.PI * 2,
+              speed: 0.75 + Math.random() * 0.55,
+              size: particleWidth < 640 ? 0.75 + Math.random() * 1.15 : 0.95 + Math.random() * 1.35,
+              pale: Math.random() > 0.22
+            }));
+          }
+
+          function updateCurrentPointer(event) {
+            const rect = particleCanvas.getBoundingClientRect();
+            const margin = 140;
+            const nearestX = Math.max(rect.left, Math.min(event.clientX, rect.right));
+            const nearestY = Math.max(rect.top, Math.min(event.clientY, rect.bottom));
+            const distance = Math.hypot(event.clientX - nearestX, event.clientY - nearestY);
+            const proximity = Math.max(0, 1 - distance / margin);
+            currentPointer.targetX = event.clientX - rect.left;
+            currentPointer.targetY = event.clientY - rect.top;
+            currentPointer.targetInfluence = proximity * proximity * 0.72;
+
+            if (!currentPointer.initialized) {
+              currentPointer.x = currentPointer.targetX;
+              currentPointer.y = currentPointer.targetY;
+              currentPointer.initialized = true;
+            }
+          }
+
+          function releaseCurrentPointer() {
+            currentPointer.targetInfluence = 0;
+          }
+
+          function currentVectorAt(x, y, time) {
+            const baseAngle = Math.sin(x * 0.006 + time * 0.36) * 0.18;
+            let vx = Math.cos(baseAngle);
+            let vy = Math.sin(baseAngle) * 0.52;
+
+            if (currentPointer.influence > 0.01) {
+              const dx = x - currentPointer.x;
+              const dy = y - currentPointer.y;
+              const falloff = Math.exp(-(dx * dx + dy * dy) / 68000) * currentPointer.influence;
+              vx += (0.08 - dy * 0.0012) * falloff;
+              vy += dx * 0.0018 * falloff;
+            }
+
+            const length = Math.hypot(vx, vy) || 1;
+            return { x: vx / length, y: vy / length };
+          }
+
+          function drawCurrentVectorField(time) {
+            particleContext.save();
+            particleContext.lineCap = 'round';
+            particleContext.lineWidth = 0.65;
+            particleContext.strokeStyle = 'rgba(82, 94, 255, 0.2)';
+
+            for (let x = particleWidth * 0.08; x <= particleWidth * 0.94; x += 70) {
+              const bandY = particleHeight * (0.36 + 0.15 * Math.sin((x / particleWidth) * Math.PI * 2.25 + time * 0.32));
+              for (let lane = -1; lane <= 1; lane += 1) {
+                const y = bandY + lane * particleHeight * 0.14;
+                const vector = currentVectorAt(x, y, time);
+                const length = 11 + currentPointer.influence * 4;
+                particleContext.beginPath();
+                particleContext.moveTo(x - vector.x * length * 0.45, y - vector.y * length * 0.45);
+                particleContext.lineTo(x + vector.x * length * 0.55, y + vector.y * length * 0.55);
+                particleContext.stroke();
+              }
+            }
+            particleContext.restore();
+          }
+
+          function drawParticleCurrent(time = 0) {
+            if (!particleIsVisible || document.hidden) {
+              return;
+            }
+
+            if (!prefersReducedMotion && time - lastParticleDraw < 20) {
+              particleAnimationFrame = window.requestAnimationFrame(drawParticleCurrent);
+              return;
+            }
+
+            lastParticleDraw = time;
+            const seconds = time * 0.001;
+            currentPointer.x += (currentPointer.targetX - currentPointer.x) * 0.11;
+            currentPointer.y += (currentPointer.targetY - currentPointer.y) * 0.11;
+            currentPointer.influence += (currentPointer.targetInfluence - currentPointer.influence) * 0.055;
+            particleContext.clearRect(0, 0, particleWidth, particleHeight);
+            drawCurrentVectorField(seconds);
+
+            particles.forEach((particle) => {
+              const u = (particle.u + seconds * 0.018 * particle.speed) % 1;
+              const theta = u * Math.PI * 4.35 + seconds * 0.82 + particle.phase;
+              const centerY =
+                particleHeight * (0.36 + 0.15 * Math.sin(u * Math.PI * 2.25 + seconds * 0.32));
+              const rotation = Math.sin(theta);
+              const depth = Math.cos(theta);
+              const spread = particleHeight * (0.19 + 0.06 * Math.sin(u * Math.PI * 2 + seconds * 0.24));
+              const taper = 0.66 + 0.34 * Math.sin(u * Math.PI);
+              const x =
+                u * particleWidth +
+                Math.sin(theta * 0.72 + particle.lane) * 14 * taper;
+              let y =
+                centerY +
+                particle.lane * spread * (0.35 + 0.65 * Math.abs(rotation)) +
+                depth * 18;
+              if (currentPointer.influence > 0.01) {
+                const dx = x - currentPointer.x;
+                const dy = y - currentPointer.y;
+                const falloff = Math.exp(-(dx * dx + dy * dy) / 76000) * currentPointer.influence;
+                y += (dx * 0.055 - dy * 0.018) * falloff;
+              }
+              const radius = particle.size * (0.58 + (depth + 1) * 0.26);
+              const verticalFade = Math.max(0, Math.min(1, Math.min(y / (particleHeight * 0.2), (particleHeight - y) / (particleHeight * 0.2))));
+              const alpha = (particle.pale ? 0.46 : 0.64) * (0.52 + (depth + 1) * 0.18) * verticalFade;
+
+              particleContext.beginPath();
+              particleContext.arc(x, y, radius, 0, Math.PI * 2);
+              particleContext.fillStyle = particle.pale
+                ? `rgba(112, 102, 255, ${alpha})`
+                : `rgba(82, 94, 255, ${alpha})`;
+              particleContext.fill();
+            });
+
+            if (!prefersReducedMotion) {
+              particleAnimationFrame = window.requestAnimationFrame(drawParticleCurrent);
+            }
+          }
+
+          function renderParticleCurrent() {
+            resizeParticleCurrent();
+            if (particleIsVisible) {
+              window.cancelAnimationFrame(particleAnimationFrame);
+              lastParticleDraw = 0;
+              drawParticleCurrent();
+            } else {
+              particleContext.clearRect(0, 0, particleWidth, particleHeight);
+            }
+          }
+
+          function stopParticleCurrent() {
+            window.cancelAnimationFrame(particleAnimationFrame);
+          }
+
+          window.addEventListener('resize', renderParticleCurrent);
+          document.addEventListener('pointermove', updateCurrentPointer, { passive: true });
+          document.addEventListener('pointerdown', updateCurrentPointer, { passive: true });
+          document.addEventListener('pointerleave', releaseCurrentPointer);
+          window.addEventListener('blur', releaseCurrentPointer);
+          document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+              stopParticleCurrent();
+            } else if (particleIsVisible) {
+              renderParticleCurrent();
+            }
+          });
+
+          particleIsVisible = true;
+          renderParticleCurrent();
+
+          if (prefersReducedMotion) {
+            renderParticleCurrent();
+            stopParticleCurrent();
+          }
+        } else {
+          particleCanvas.hidden = true;
+        }
+      }
     </script>
   </body>
 </html>
