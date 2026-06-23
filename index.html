@@ -8,29 +8,84 @@
     <meta name="author" content="Hanxin Zhang / 张含鑫">
 
     <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css?v=20260623-language-toggle-balanced">
   </head>
 
   <body>
+    <svg class="icon-defs" width="0" height="0" aria-hidden="true" focusable="false">
+      <symbol id="hobby-game" viewBox="0 0 24 24">
+        <path fill="#2f3747" d="M7.2 8h9.6a4.2 4.2 0 0 1 4 5.5l-.8 2.4a2.4 2.4 0 0 1-4 .9L13.8 15h-3.6L8 16.8a2.4 2.4 0 0 1-4-.9l-.8-2.4A4.2 4.2 0 0 1 7.2 8Z"></path>
+        <path fill="#55a8ff" d="M7 11h4v2H7z"></path>
+        <path fill="#55a8ff" d="M8 10h2v4H8z"></path>
+        <circle cx="16" cy="12.7" r="1.1" fill="#f09228"></circle>
+        <circle cx="18.6" cy="10.9" r="1.1" fill="#f7c948"></circle>
+      </symbol>
+      <symbol id="hobby-gym" viewBox="0 0 24 24">
+        <path fill="#2f3747" d="M6.5 10.8h11v2.4h-11z"></path>
+        <path fill="#154f8c" d="M3 8.5h2.3v7H3zM18.7 8.5H21v7h-2.3z"></path>
+        <path fill="#55a8ff" d="M5.1 7.2h2.1v9.6H5.1zM16.8 7.2h2.1v9.6h-2.1z"></path>
+        <path fill="#f09228" d="M9.2 9.7h1.8v4.6H9.2zM13 9.7h1.8v4.6H13z"></path>
+      </symbol>
+      <symbol id="hobby-cook" viewBox="0 0 24 24">
+        <path fill="#2f3747" d="M4.5 10.7h12.4a4.8 4.8 0 0 1-4.8 4.8H9.3a4.8 4.8 0 0 1-4.8-4.8Z"></path>
+        <path fill="#55a8ff" d="M5.7 11.6h9.8a3.3 3.3 0 0 1-3.2 2.3H8.9a3.3 3.3 0 0 1-3.2-2.3Z"></path>
+        <path fill="#9a530f" d="M16.5 10.7h5.2v1.8h-5.2z"></path>
+        <path fill="#f09228" d="M7.2 7.3a2.8 2.8 0 0 1 5.6 0 2.8 2.8 0 0 1-5.6 0Z"></path>
+        <path fill="#f7d68a" d="M8.7 7.3a1.3 1.3 0 0 1 2.6 0 1.3 1.3 0 0 1-2.6 0Z"></path>
+      </symbol>
+      <symbol id="hobby-physics" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="2.1" fill="#f09228"></circle>
+        <ellipse cx="12" cy="12" rx="8" ry="3.1" fill="none" stroke="#1772d0" stroke-width="1.7"></ellipse>
+        <ellipse cx="12" cy="12" rx="8" ry="3.1" fill="none" stroke="#55a8ff" stroke-width="1.7" transform="rotate(60 12 12)"></ellipse>
+        <ellipse cx="12" cy="12" rx="8" ry="3.1" fill="none" stroke="#154f8c" stroke-width="1.7" transform="rotate(120 12 12)"></ellipse>
+      </symbol>
+      <symbol id="hobby-history" viewBox="0 0 24 24">
+        <path fill="#d9a441" d="M6 5h10a3 3 0 0 1 0 6H6z"></path>
+        <path fill="#f7d68a" d="M6 8a3 3 0 0 0 3 3h9v8H9a3 3 0 0 1-3-3Z"></path>
+        <path fill="#9a530f" d="M16 5h2.2a3 3 0 0 1 0 6H16a3 3 0 0 0 0-6Z"></path>
+        <path fill="#154f8c" d="M9 14h6v1.4H9zM9 17h5v1.4H9z"></path>
+      </symbol>
+      <symbol id="bio-basketball" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="8.5" fill="#f09228"></circle>
+        <path fill="none" stroke="#8c3f10" stroke-width="1.6" stroke-linecap="round" d="M12 3.5v17M3.5 12h17"></path>
+        <path fill="none" stroke="#8c3f10" stroke-width="1.4" stroke-linecap="round" d="M6 5.8c3.5 2.3 5.1 5.2 5.1 12.4M18 5.8c-3.5 2.3-5.1 5.2-5.1 12.4"></path>
+      </symbol>
+    </svg>
+
     <main class="page">
+      <div class="language-switch-wrap">
+        <button class="language-toggle" type="button" aria-label="Switch to Chinese" aria-pressed="false">
+          <span data-lang-option="en">EN</span>
+          <span data-lang-option="zh">中文</span>
+        </button>
+      </div>
+
       <section class="intro">
         <div class="intro-text">
-          <p class="kicker">CS PhD Student / Embodied AI</p>
-          <h1><span>Hanxin Zhang /</span> <span class="chinese-name">张含鑫</span></h1>
+          <p class="kicker" data-i18n="kicker">CS PhD Student / Embodied AI</p>
+          <h1 data-i18n="display-name">Hanxin Zhang</h1>
           <p class="email">hz273 [at] leicester [dot] ac [dot] uk</p>
-          <p>
-            I am a second-year CS PhD student at the University of Leicester,
+          <p data-i18n="bio-current">
+            I am a second-year CS PhD student at the University of Leicester (UoL),
             advised by <a href="https://le.ac.uk/people/daniel-hao" target="_blank" rel="noopener noreferrer">Dr Daniel Zhou Hao</a>
             and <a href="https://www.birmingham.ac.uk/staff/profiles/metallurgy/dong-hongbiao" target="_blank" rel="noopener noreferrer">Professor Hongbiao Dong FREng</a>,
             affiliated with <a href="https://www.danilab.org/" target="_blank" rel="noopener noreferrer">DANiLab</a> in
             the School of Computing and Mathematical Sciences.
           </p>
-          <p>
+          <p data-i18n="bio-previous">
             Previously, I completed both my bachelor's and master's studies at
             the University of Science and Technology Beijing (USTB), receiving a
-            master's degree in Computer Technology. During my undergraduate
+            bachelor's degree in Business and a master's degree in Computer Technology. During my undergraduate
             studies, I was also a professional Chinese University Basketball
-            Association (CUBA) player on the USTB basketball team.
+            Association (CUBA) player on the USTB basketball team<span class="hobby-token"><svg class="hobby-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#bio-basketball"></use></svg></span>.
+          </p>
+          <p class="hobbies">
+            <span class="hobbies-en">
+              Besides research, I enjoy playing games (Soulslike)<span class="hobby-token"><svg class="hobby-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#hobby-game"></use></svg></span>, gym training<span class="hobby-token"><svg class="hobby-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#hobby-gym"></use></svg></span>, and cooking<span class="hobby-token"><svg class="hobby-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#hobby-cook"></use></svg></span>. I am also interested in physics<span class="hobby-token"><svg class="hobby-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#hobby-physics"></use></svg></span> and history<span class="hobby-token"><svg class="hobby-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#hobby-history"></use></svg></span>.
+            </span>
+            <span class="hobbies-zh">
+              科研之外，我喜欢玩魂游<span class="hobby-token"><svg class="hobby-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#hobby-game"></use></svg></span>、健身<span class="hobby-token"><svg class="hobby-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#hobby-gym"></use></svg></span>和做饭<span class="hobby-token"><svg class="hobby-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#hobby-cook"></use></svg></span>。我还对物理<span class="hobby-token"><svg class="hobby-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#hobby-physics"></use></svg></span>和历史<span class="hobby-token"><svg class="hobby-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#hobby-history"></use></svg></span>感兴趣。
+            </span>
           </p>
 
           <nav class="links" aria-label="Profile links">
@@ -46,39 +101,40 @@
       </section>
 
       <section class="section">
-        <h2>Research</h2>
-        <p>
-          I am interested in robotic brains, including vision-language-action
-          (VLA) models, world action models (WAM), and human-robot interaction
-          (HRI), toward advancing embodied intelligence.
+        <h2 data-i18n="research-heading">Research</h2>
+        <p data-i18n="research-copy">
+          I am interested in <strong>robotic brains</strong>, including vision-language-action
+          (VLA) models, world model (WM), world action models (WAM), and
+          human-robot interaction (HRI), toward advancing embodied intelligence.
         </p>
       </section>
 
       <section class="section publications">
-        <h2>Publications</h2>
+        <h2 data-i18n="publications-heading">Publications</h2>
         <article class="item">
           <div class="item-media">
             <button class="image-trigger" type="button" aria-label="Play Embodied Interpretability video" data-media="video" data-full="images/papers/embodied-interpretability/video.mp4" data-poster="images/papers/embodied-interpretability/teaser.png" data-alt="Embodied Interpretability video preview">
               <img src="images/papers/embodied-interpretability/teaser.png" alt="Embodied Interpretability teaser">
-              <span class="media-action" aria-hidden="true">play video</span>
+              <span class="media-action" aria-hidden="true" data-i18n="play-video">play video</span>
             </button>
           </div>
           <div class="item-content">
             <p class="venue">
               <span class="venue-tag">ICML 2026</span>
-              <span class="venue-name">International Conference on Machine Learning</span>
+              <span class="venue-name" data-i18n="venue-icml">International Conference on Machine Learning</span>
             </p>
             <h3><span>
               Embodied Interpretability: Linking Causal Understanding to
               Generalization in Vision-Language-Action Models
             </span></h3>
+            <p class="title-translation" data-i18n="paper-embodied-title-zh" hidden></p>
             <p class="authors">
               <strong>Hanxin Zhang</strong>, Mingshuo Xu, Abdulqader Dhafer, Shigang Yue,
               Hongbiao Dong, Zhou Daniel Hao
             </p>
             <p class="item-links">
-              <a href="https://robot-future.github.io/vla-explain/" target="_blank" rel="noopener noreferrer">website</a>
-              <a href="https://icml.cc/virtual/2026/poster/63997" target="_blank" rel="noopener noreferrer">paper</a>
+              <a href="https://robot-future.github.io/vla-explain/" target="_blank" rel="noopener noreferrer" data-i18n="link-website">website</a>
+              <a href="https://icml.cc/virtual/2026/poster/63997" target="_blank" rel="noopener noreferrer" data-i18n="link-paper">paper</a>
               <a href="images/papers/embodied-interpretability/embodied-interpretability-linking-causal-understanding-to-generalization-in-vision-language-action-models.pdf" target="_blank" rel="noopener noreferrer">pdf</a>
             </p>
           </div>
@@ -88,24 +144,25 @@
           <div class="item-media">
             <button class="image-trigger" type="button" aria-label="Play Intent-Handover video" data-media="video" data-full="images/papers/intent-handover/video.mp4" data-poster="images/papers/intent-handover/teaser.png" data-alt="Intent-Handover video preview">
               <img src="images/papers/intent-handover/teaser.png" alt="Intent-Handover teaser">
-              <span class="media-action" aria-hidden="true">play video</span>
+              <span class="media-action" aria-hidden="true" data-i18n="play-video">play video</span>
             </button>
           </div>
           <div class="item-content">
             <p class="venue">
               <span class="venue-tag">IROS 2026</span>
-              <span class="venue-name">IEEE/RSJ International Conference on Intelligent Robots and Systems</span>
+              <span class="venue-name" data-i18n="venue-iros">IEEE/RSJ International Conference on Intelligent Robots and Systems</span>
             </p>
             <h3><span>
               Intent-Handover: Grounding Language in Human-Usage Regions for
               Trustworthy Robot-to-Human Handovers
             </span></h3>
+            <p class="title-translation" data-i18n="paper-intent-title-zh" hidden></p>
             <p class="authors">
               <strong>Hanxin Zhang</strong>, Abdulqader Dhafer, Hongbiao Dong,
               Zhou Daniel Hao
             </p>
             <p class="item-links">
-              <a href="https://robot-future.github.io/intent-handover/" target="_blank" rel="noopener noreferrer">website</a>
+              <a href="https://robot-future.github.io/intent-handover/" target="_blank" rel="noopener noreferrer" data-i18n="link-website">website</a>
               <a href="images/papers/intent-handover/intent-handover-grounding-language-in-human-usage-regions-for-trustworthy-robot-to-human-handovers.pdf" target="_blank" rel="noopener noreferrer">pdf</a>
             </p>
           </div>
@@ -115,24 +172,25 @@
           <div class="item-media">
             <button class="image-trigger" type="button" aria-label="Play R2HandoverSim video" data-media="video" data-full="images/papers/r2handoversim/video.mp4" data-poster="images/papers/r2handoversim/teaser.png" data-alt="R2HandoverSim video preview">
               <img src="images/papers/r2handoversim/teaser.png" alt="R2HandoverSim teaser">
-              <span class="media-action" aria-hidden="true">play video</span>
+              <span class="media-action" aria-hidden="true" data-i18n="play-video">play video</span>
             </button>
           </div>
           <div class="item-content">
             <p class="venue">
               <span class="venue-tag">IROS 2026</span>
-              <span class="venue-name">IEEE/RSJ International Conference on Intelligent Robots and Systems</span>
+              <span class="venue-name" data-i18n="venue-iros">IEEE/RSJ International Conference on Intelligent Robots and Systems</span>
             </p>
             <h3><span>
               R2HandoverSim: A Simulation Framework and Benchmark for
               Robot-to-Human Object Handovers
             </span></h3>
+            <p class="title-translation" data-i18n="paper-r2-title-zh" hidden></p>
             <p class="authors">
               <strong>Hanxin Zhang</strong>, Abdulqader Dhafer, Hongbiao Dong,
               Zhou Daniel Hao
             </p>
             <p class="item-links">
-              <a href="https://robot-future.github.io/r2handoversim/" target="_blank" rel="noopener noreferrer">website</a>
+              <a href="https://robot-future.github.io/r2handoversim/" target="_blank" rel="noopener noreferrer" data-i18n="link-website">website</a>
               <a href="images/papers/r2handoversim/r2handoversim-a-simulation-framework-and-benchmark-for-robot-to-human-object-handovers.pdf" target="_blank" rel="noopener noreferrer">pdf</a>
             </p>
           </div>
@@ -151,7 +209,103 @@
       </div>
     </div>
 
+    <div class="floating-language-wrap">
+      <button class="floating-language-toggle" type="button" aria-label="Switch to Chinese" aria-pressed="false" tabindex="-1">
+        <span class="floating-language-en" aria-hidden="true">EN</span>
+        <span class="floating-language-zh" aria-hidden="true">中</span>
+      </button>
+    </div>
+
     <script>
+      const translations = {
+        en: {
+          kicker: 'CS PhD Student / Embodied AI',
+          'display-name': 'Hanxin Zhang',
+          'bio-current': 'I am a second-year CS PhD student at the University of Leicester (UoL), advised by <a href="https://le.ac.uk/people/daniel-hao" target="_blank" rel="noopener noreferrer">Dr Daniel Zhou Hao</a> and <a href="https://www.birmingham.ac.uk/staff/profiles/metallurgy/dong-hongbiao" target="_blank" rel="noopener noreferrer">Professor Hongbiao Dong FREng</a>, affiliated with <a href="https://www.danilab.org/" target="_blank" rel="noopener noreferrer">DANiLab</a> in the School of Computing and Mathematical Sciences.',
+          'bio-previous': 'Previously, I completed both my bachelor\'s and master\'s studies at the University of Science and Technology Beijing (USTB), receiving a bachelor\'s degree in Business and a master\'s degree in Computer Technology. During my undergraduate studies, I was also a professional Chinese University Basketball Association (CUBA) player on the USTB basketball team<span class="hobby-token"><svg class="hobby-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#bio-basketball"></use></svg></span>.',
+          'research-heading': 'Research',
+          'research-copy': 'I am interested in <strong>robotic brains</strong>, including vision-language-action (VLA) models, world model (WM), world action models (WAM), and human-robot interaction (HRI), toward advancing embodied intelligence.',
+          'publications-heading': 'Publications',
+          'venue-icml': 'International Conference on Machine Learning',
+          'venue-iros': 'IEEE/RSJ International Conference on Intelligent Robots and Systems',
+          'paper-embodied-title-zh': '',
+          'paper-intent-title-zh': '',
+          'paper-r2-title-zh': '',
+          'link-website': 'website',
+          'link-paper': 'paper',
+          'play-video': 'play video'
+        },
+        zh: {
+          kicker: '计算机科学博士生 / 具身智能',
+          'display-name': '张含鑫',
+          'bio-current': '我是莱斯特大学（UoL）计算机科学二年级博士生，师从 <a href="https://le.ac.uk/people/daniel-hao" target="_blank" rel="noopener noreferrer">Dr Daniel Zhou Hao</a> 和 <a href="https://www.birmingham.ac.uk/staff/profiles/metallurgy/dong-hongbiao" target="_blank" rel="noopener noreferrer">Professor Hongbiao Dong FREng</a>，隶属于计算机与数学科学学院的 <a href="https://www.danilab.org/" target="_blank" rel="noopener noreferrer">DANiLab</a>。',
+          'bio-previous': '此前，我在北京科技大学（USTB）完成本科与硕士学习，并获得商学学士学位和计算机技术硕士学位。本科期间，我也是北京科技大学篮球队的中国大学生篮球联赛（CUBA）职业球员<span class="hobby-token"><svg class="hobby-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#bio-basketball"></use></svg></span>。',
+          'research-heading': '研究方向',
+          'research-copy': '我的研究方向聚焦于<strong>机器人大脑</strong>，包括“视觉-语言-动作模型（VLA）”、“世界模型（WM）”、“世界动作模型（WAM）”，以及“人机交互（HRI）”，致力于推动具身智能的发展。',
+          'publications-heading': '论文发表',
+          'venue-icml': '国际机器学习大会',
+          'venue-iros': 'IEEE/RSJ 智能机器人与系统国际会议',
+          'paper-embodied-title-zh': '《具身可解释性：连接视觉语言动作模型的因果理解与泛化能力》',
+          'paper-intent-title-zh': '《Intent-Handover：基于人类使用区域理解的可信机器人向人交接方法》',
+          'paper-r2-title-zh': '《R2HandoverSim：面向机器人向人交接任务的仿真框架与评测基准》',
+          'link-website': '主页',
+          'link-paper': '论文',
+          'play-video': '播放视频'
+        }
+      };
+
+      const languageToggles = document.querySelectorAll('.language-toggle, .floating-language-toggle');
+      const floatingLanguageWrap = document.querySelector('.floating-language-wrap');
+      const topLanguageSwitch = document.querySelector('.language-switch-wrap');
+      const translatableElements = document.querySelectorAll('[data-i18n]');
+      let isTopLanguageVisible = true;
+      let currentLanguage = 'en';
+
+      function setLanguage(language) {
+        currentLanguage = language;
+        translatableElements.forEach((element) => {
+          const translation = translations[language][element.dataset.i18n];
+          element.innerHTML = translation || '';
+          if (element.classList.contains('title-translation')) {
+            element.hidden = !translation;
+          }
+        });
+        document.documentElement.lang = language === 'zh' ? 'zh-CN' : 'en';
+        languageToggles.forEach((toggle) => {
+          toggle.classList.toggle('is-zh', language === 'zh');
+          toggle.setAttribute('aria-pressed', String(language === 'zh'));
+          toggle.setAttribute('aria-label', language === 'zh' ? 'Switch to English' : 'Switch to Chinese');
+        });
+      }
+
+      function syncFloatingLanguageVisibility() {
+        const shouldShow = !isTopLanguageVisible;
+        document.body.classList.toggle('show-floating-language', shouldShow);
+        floatingLanguageWrap?.querySelector('button')?.setAttribute('tabindex', shouldShow ? '0' : '-1');
+      }
+
+      languageToggles.forEach((toggle) => {
+        toggle.addEventListener('click', () => {
+          setLanguage(currentLanguage === 'en' ? 'zh' : 'en');
+        });
+      });
+
+      if (topLanguageSwitch && 'IntersectionObserver' in window) {
+        const languageObserver = new IntersectionObserver((entries) => {
+          isTopLanguageVisible = entries[0]?.isIntersecting ?? true;
+          syncFloatingLanguageVisibility();
+        }, { threshold: 0.2 });
+        languageObserver.observe(topLanguageSwitch);
+      } else {
+        window.addEventListener('scroll', () => {
+          const rect = topLanguageSwitch?.getBoundingClientRect();
+          isTopLanguageVisible = Boolean(rect && rect.bottom > 0 && rect.top < window.innerHeight);
+          syncFloatingLanguageVisibility();
+        }, { passive: true });
+      }
+
+      syncFloatingLanguageVisibility();
+
       const imageTriggers = document.querySelectorAll('.image-trigger, .profile-trigger');
       const publicationItems = document.querySelectorAll('.item');
       const lightbox = document.querySelector('#image-lightbox');
