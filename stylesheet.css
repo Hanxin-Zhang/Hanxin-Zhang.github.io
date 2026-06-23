@@ -323,20 +323,20 @@ h3 {
 
 .floating-language-wrap {
   position: fixed;
-  right: 22px;
-  bottom: 24px;
+  right: 28px;
+  top: 83.333vh;
   z-index: 12;
   display: flex;
   opacity: 0;
   pointer-events: none;
-  transform: translateY(8px) scale(0.92);
+  transform: translateY(calc(-50% + 8px)) scale(0.92);
   transition: opacity 180ms ease, transform 180ms ease;
 }
 
 body.show-floating-language .floating-language-wrap {
   opacity: 1;
   pointer-events: auto;
-  transform: translateY(0) scale(1);
+  transform: translateY(-50%) scale(1);
 }
 
 .floating-language-toggle {
@@ -344,8 +344,8 @@ body.show-floating-language .floating-language-wrap {
   display: inline-grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr;
-  width: 48px;
-  height: 48px;
+  width: 54px;
+  height: 54px;
   align-items: center;
   justify-items: center;
   padding: 0;
@@ -385,7 +385,7 @@ body.show-floating-language .floating-language-wrap {
   position: relative;
   z-index: 1;
   color: rgba(255, 255, 255, 0.62);
-  font-size: 10px;
+  font-size: 11px;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.34);
   transition: color 180ms ease, text-shadow 180ms ease;
 }
@@ -650,10 +650,10 @@ html[lang="zh-CN"] .hobby-token {
   bottom: 8px;
   left: 8px;
   display: inline-flex;
-  min-height: 34px;
+  min-height: 38px;
   align-items: center;
   justify-content: center;
-  padding: 7px 14px;
+  padding: 8px 16px;
   color: rgba(255, 255, 255, 0.96);
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.06) 34%, rgba(255, 255, 255, 0.02)),
@@ -666,7 +666,7 @@ html[lang="zh-CN"] .hobby-token {
     0 14px 30px rgba(6, 18, 34, 0.36);
   backdrop-filter: blur(12px) saturate(1.2);
   -webkit-backdrop-filter: blur(12px) saturate(1.2);
-  font-size: 13.5px;
+  font-size: 14.5px;
   font-weight: 800;
   line-height: 1;
   text-align: center;
@@ -691,7 +691,7 @@ html[lang="zh-CN"] .hobby-token {
 .authors {
   margin-bottom: 14px;
   color: #344054;
-  font-size: 12.5px;
+  font-size: 13.5px;
   line-height: 1.45;
 }
 
@@ -699,7 +699,7 @@ html[lang="zh-CN"] .hobby-token {
   display: none;
   margin: -2px 0 10px;
   color: #475467;
-  font-size: 14px;
+  font-size: 14.5px;
   font-weight: 500;
   line-height: 1.45;
 }
@@ -730,7 +730,7 @@ html[lang="zh-CN"] .title-translation {
 .venue-name {
   min-width: 0;
   overflow: hidden;
-  font-size: 15.5px;
+  font-size: 16px;
   font-weight: 500;
   line-height: 1.2;
   text-overflow: ellipsis;
@@ -743,7 +743,7 @@ html[lang="zh-CN"] .title-translation {
   flex: 0 0 auto;
   padding: 0;
   color: #154f8c;
-  font-size: 15.5px;
+  font-size: 16px;
   font-weight: 700;
   line-height: 1.2;
   text-transform: uppercase;
@@ -787,6 +787,12 @@ html[lang="zh-CN"] .title-translation {
   line-height: 1;
   text-align: center;
   transition: border-color 160ms ease, box-shadow 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+.item-links a {
+  min-height: 36px;
+  padding: 7px 15px;
+  font-size: 13.5px;
 }
 
 .links a:hover,
@@ -931,13 +937,13 @@ html[lang="zh-CN"] .title-translation {
   }
 
   .floating-language-wrap {
-    right: 14px;
-    bottom: 22px;
+    right: 20px;
+    top: 83.333vh;
   }
 
   .floating-language-toggle {
-    width: 44px;
-    height: 44px;
+    width: 52px;
+    height: 52px;
   }
 
   .intro-text {
@@ -1007,14 +1013,14 @@ html[lang="zh-CN"] .title-translation {
     right: 0;
     bottom: 0;
     left: 0;
-    min-height: 24px;
-    padding: 5px 6px;
+    min-height: 28px;
+    padding: 6px 7px;
     background:
       linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.04) 34%, rgba(255, 255, 255, 0.02)),
       linear-gradient(135deg, rgba(22, 102, 190, 0.5), rgba(10, 27, 48, 0.76));
     border-width: 1px 0 0;
     border-radius: 0 0 5px 5px;
-    font-size: 11px;
+    font-size: 12.5px;
     font-weight: 800;
   }
 
@@ -1028,25 +1034,25 @@ html[lang="zh-CN"] .title-translation {
   }
 
   .venue-name {
-    font-size: 14px;
+    font-size: 14.5px;
   }
 
   .venue-tag {
-    font-size: 14px;
+    font-size: 14.5px;
   }
 
   h3 {
     grid-column: 2;
     grid-row: 2;
     margin-bottom: 8px;
-    font-size: 16px;
+    font-size: 17px;
   }
 
   .authors {
     grid-column: 1 / -1;
     grid-row: 4;
     margin-bottom: 10px;
-    font-size: 14px;
+    font-size: 14.5px;
   }
 
   .item-links {
@@ -1059,13 +1065,13 @@ html[lang="zh-CN"] .title-translation {
     grid-column: 1 / -1;
     grid-row: 3;
     margin: -2px 0 10px;
-    font-size: 14px;
+    font-size: 14.5px;
   }
 
   .item-links a {
-    min-height: 30px;
-    padding: 6px 11px;
-    font-size: 12px;
+    min-height: 34px;
+    padding: 7px 13px;
+    font-size: 13px;
   }
 
   .venue-name {
