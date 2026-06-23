@@ -113,9 +113,9 @@
         <h2 data-i18n="publications-heading">Publications</h2>
         <article class="item">
           <div class="item-media">
-            <button class="image-trigger" type="button" aria-label="Play Embodied Interpretability video" data-media="video" data-full="images/papers/embodied-interpretability/video.mp4" data-poster="images/papers/embodied-interpretability/teaser.png" data-alt="Embodied Interpretability video preview">
+            <button class="image-trigger" type="button" aria-label="Preview Embodied Interpretability video" data-media="video" data-full="images/papers/embodied-interpretability/preview.mov" data-poster="images/papers/embodied-interpretability/teaser.png" data-alt="Embodied Interpretability video preview">
               <img src="images/papers/embodied-interpretability/teaser.png" alt="Embodied Interpretability teaser">
-              <span class="media-action" aria-hidden="true" data-i18n="play-video">play video</span>
+              <span class="media-action" aria-hidden="true" data-i18n="video-preview">preview</span>
             </button>
           </div>
           <div class="item-content">
@@ -142,9 +142,9 @@
 
         <article class="item">
           <div class="item-media">
-            <button class="image-trigger" type="button" aria-label="Play Intent-Handover video" data-media="video" data-full="images/papers/intent-handover/video.mp4" data-poster="images/papers/intent-handover/teaser.png" data-alt="Intent-Handover video preview">
+            <button class="image-trigger" type="button" aria-label="Preview Intent-Handover video" data-media="video" data-full="images/papers/intent-handover/preview.mov" data-poster="images/papers/intent-handover/teaser.png" data-alt="Intent-Handover video preview">
               <img src="images/papers/intent-handover/teaser.png" alt="Intent-Handover teaser">
-              <span class="media-action" aria-hidden="true" data-i18n="play-video">play video</span>
+              <span class="media-action" aria-hidden="true" data-i18n="video-preview">preview</span>
             </button>
           </div>
           <div class="item-content">
@@ -163,6 +163,7 @@
             </p>
             <p class="item-links">
               <a href="https://robot-future.github.io/intent-handover/" target="_blank" rel="noopener noreferrer" data-i18n="link-website">website</a>
+              <a href="images/papers/intent-handover/video.mp4?v=slow-085" target="_blank" rel="noopener noreferrer" class="lightbox-video-link" data-media="video" data-full="images/papers/intent-handover/video.mp4?v=slow-085" data-poster="images/papers/intent-handover/teaser.png" data-alt="Intent-Handover video">video</a>
               <a href="images/papers/intent-handover/intent-handover-grounding-language-in-human-usage-regions-for-trustworthy-robot-to-human-handovers.pdf" target="_blank" rel="noopener noreferrer">pdf</a>
             </p>
           </div>
@@ -170,9 +171,9 @@
 
         <article class="item">
           <div class="item-media">
-            <button class="image-trigger" type="button" aria-label="Play R2HandoverSim video" data-media="video" data-full="images/papers/r2handoversim/video.mp4" data-poster="images/papers/r2handoversim/teaser.png" data-alt="R2HandoverSim video preview">
+            <button class="image-trigger" type="button" aria-label="Preview R2HandoverSim video" data-media="video" data-full="images/papers/r2handoversim/preview.mov" data-poster="images/papers/r2handoversim/teaser.png" data-alt="R2HandoverSim video preview">
               <img src="images/papers/r2handoversim/teaser.png" alt="R2HandoverSim teaser">
-              <span class="media-action" aria-hidden="true" data-i18n="play-video">play video</span>
+              <span class="media-action" aria-hidden="true" data-i18n="video-preview">preview</span>
             </button>
           </div>
           <div class="item-content">
@@ -191,6 +192,7 @@
             </p>
             <p class="item-links">
               <a href="https://robot-future.github.io/r2handoversim/" target="_blank" rel="noopener noreferrer" data-i18n="link-website">website</a>
+              <a href="images/papers/r2handoversim/video.mp4?v=slow-085" target="_blank" rel="noopener noreferrer" class="lightbox-video-link" data-media="video" data-full="images/papers/r2handoversim/video.mp4?v=slow-085" data-poster="images/papers/r2handoversim/teaser.png" data-alt="R2HandoverSim video">video</a>
               <a href="images/papers/r2handoversim/r2handoversim-a-simulation-framework-and-benchmark-for-robot-to-human-object-handovers.pdf" target="_blank" rel="noopener noreferrer">pdf</a>
             </p>
           </div>
@@ -233,7 +235,7 @@
           'paper-r2-title-zh': '',
           'link-website': 'website',
           'link-paper': 'paper',
-          'play-video': 'play video'
+          'video-preview': 'preview'
         },
         zh: {
           kicker: '计算机科学博士生 / 具身智能',
@@ -250,7 +252,7 @@
           'paper-r2-title-zh': '《R2HandoverSim：面向机器人向人交接任务的仿真框架与评测基准》',
           'link-website': '主页',
           'link-paper': '论文',
-          'play-video': '播放视频'
+          'video-preview': '预览'
         }
       };
 
@@ -306,12 +308,18 @@
 
       syncFloatingLanguageVisibility();
 
-      const imageTriggers = document.querySelectorAll('.image-trigger, .profile-trigger');
+      const imageTriggers = document.querySelectorAll('.image-trigger, .profile-trigger, .lightbox-video-link');
       const publicationItems = document.querySelectorAll('.item');
       const lightbox = document.querySelector('#image-lightbox');
       const lightboxImage = lightbox.querySelector('.lightbox-image');
       const lightboxVideo = lightbox.querySelector('.lightbox-video');
       let activeImageTrigger = null;
+
+      function clearCardActions() {
+        publicationItems.forEach((publicationItem) => {
+          publicationItem.classList.remove('is-action-visible');
+        });
+      }
 
       function showCardAction(item) {
         publicationItems.forEach((publicationItem) => {
@@ -322,8 +330,18 @@
         item.classList.add('is-action-visible');
       }
 
-      function hideCardAction(item) {
+      function hideCardAction(item, force = false) {
+        if (!force && item.contains(document.activeElement)) {
+          return;
+        }
         item.classList.remove('is-action-visible');
+      }
+
+      function restoreFocusedCardAction() {
+        const focusedItem = document.activeElement?.closest?.('.item');
+        if (focusedItem) {
+          showCardAction(focusedItem);
+        }
       }
 
       function openLightbox(trigger) {
@@ -333,6 +351,8 @@
           lightboxVideo.hidden = false;
           lightboxVideo.poster = trigger.dataset.poster;
           lightboxVideo.src = trigger.dataset.full;
+          lightboxVideo.defaultPlaybackRate = Number.parseFloat(trigger.dataset.playbackRate || '1');
+          lightboxVideo.playbackRate = lightboxVideo.defaultPlaybackRate;
           lightboxVideo.setAttribute('aria-label', trigger.dataset.alt);
           lightboxVideo.load();
         } else {
@@ -361,21 +381,34 @@
       }
 
       imageTriggers.forEach((trigger) => {
-        trigger.addEventListener('click', () => openLightbox(trigger));
+        trigger.addEventListener('click', (event) => {
+          event.preventDefault();
+          openLightbox(trigger);
+        });
       });
       publicationItems.forEach((item) => {
+        item.addEventListener('pointerenter', (event) => {
+          if (event.pointerType !== 'touch') {
+            showCardAction(item);
+          }
+        });
         item.addEventListener('pointerdown', () => showCardAction(item));
-        item.addEventListener('pointerleave', () => hideCardAction(item));
+        item.addEventListener('pointerleave', (event) => {
+          if (event.pointerType !== 'touch') {
+            hideCardAction(item);
+            restoreFocusedCardAction();
+          }
+        });
         item.addEventListener('focusin', () => showCardAction(item));
         item.addEventListener('focusout', (event) => {
           if (!item.contains(event.relatedTarget)) {
-            hideCardAction(item);
+            hideCardAction(item, true);
           }
         });
       });
       document.addEventListener('pointerdown', (event) => {
         if (!event.target.closest('.item')) {
-          publicationItems.forEach((item) => hideCardAction(item));
+          clearCardActions();
         }
       });
       lightbox.addEventListener('click', (event) => {
