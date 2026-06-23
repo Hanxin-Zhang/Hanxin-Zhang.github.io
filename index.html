@@ -300,44 +300,6 @@
             currentPointer.targetInfluence = 0;
           }
 
-          function currentVectorAt(x, y, time) {
-            const baseAngle = Math.sin(x * 0.006 + time * 0.36) * 0.18;
-            let vx = Math.cos(baseAngle);
-            let vy = Math.sin(baseAngle) * 0.52;
-
-            if (currentPointer.influence > 0.01) {
-              const dx = x - currentPointer.x;
-              const dy = y - currentPointer.y;
-              const falloff = Math.exp(-(dx * dx + dy * dy) / 68000) * currentPointer.influence;
-              vx += (0.08 - dy * 0.0012) * falloff;
-              vy += dx * 0.0018 * falloff;
-            }
-
-            const length = Math.hypot(vx, vy) || 1;
-            return { x: vx / length, y: vy / length };
-          }
-
-          function drawCurrentVectorField(time) {
-            particleContext.save();
-            particleContext.lineCap = 'round';
-            particleContext.lineWidth = 0.65;
-            particleContext.strokeStyle = 'rgba(82, 94, 255, 0.2)';
-
-            for (let x = particleWidth * 0.08; x <= particleWidth * 0.94; x += 70) {
-              const bandY = particleHeight * (0.36 + 0.15 * Math.sin((x / particleWidth) * Math.PI * 2.25 + time * 0.32));
-              for (let lane = -1; lane <= 1; lane += 1) {
-                const y = bandY + lane * particleHeight * 0.14;
-                const vector = currentVectorAt(x, y, time);
-                const length = 11 + currentPointer.influence * 4;
-                particleContext.beginPath();
-                particleContext.moveTo(x - vector.x * length * 0.45, y - vector.y * length * 0.45);
-                particleContext.lineTo(x + vector.x * length * 0.55, y + vector.y * length * 0.55);
-                particleContext.stroke();
-              }
-            }
-            particleContext.restore();
-          }
-
           function drawParticleCurrent(time = 0) {
             if (!particleIsVisible || document.hidden) {
               return;
@@ -354,7 +316,6 @@
             currentPointer.y += (currentPointer.targetY - currentPointer.y) * 0.11;
             currentPointer.influence += (currentPointer.targetInfluence - currentPointer.influence) * 0.055;
             particleContext.clearRect(0, 0, particleWidth, particleHeight);
-            drawCurrentVectorField(seconds);
 
             particles.forEach((particle) => {
               const u = (particle.u + seconds * 0.018 * particle.speed) % 1;
