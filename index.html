@@ -8,7 +8,7 @@
     <meta name="author" content="Hanxin Zhang / 张含鑫">
 
     <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="stylesheet.css?v=20260623-language-toggle-balanced">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css?v=20260624-gemini-single">
   </head>
 
   <body>
@@ -52,6 +52,34 @@
       </symbol>
     </svg>
 
+    <div class="side-constellations" aria-hidden="true">
+      <div class="constellation">
+        <svg class="gemini-map" viewBox="0 0 100 76" focusable="false">
+          <g class="gemini-lines">
+            <path d="M20 24 L28 12 L44 18 L56 8"></path>
+            <path d="M44 18 L60 34 L74 43 L82 43 L90 40"></path>
+            <path d="M20 24 L36 46 L36 63"></path>
+            <path d="M36 46 L47 50 L65 64 L60 75"></path>
+          </g>
+          <g class="gemini-stars">
+            <circle class="gemini-star star-pollux" cx="20" cy="24" r="3.2"></circle>
+            <circle class="gemini-star star-castor" cx="28" cy="12" r="2.9"></circle>
+            <circle class="gemini-star" cx="44" cy="18" r="1.9"></circle>
+            <circle class="gemini-star" cx="56" cy="8" r="1.5"></circle>
+            <circle class="gemini-star" cx="60" cy="34" r="1.8"></circle>
+            <circle class="gemini-star" cx="74" cy="43" r="1.9"></circle>
+            <circle class="gemini-star" cx="82" cy="43" r="1.5"></circle>
+            <circle class="gemini-star" cx="90" cy="40" r="1.4"></circle>
+            <circle class="gemini-star" cx="36" cy="46" r="2"></circle>
+            <circle class="gemini-star" cx="36" cy="63" r="1.6"></circle>
+            <circle class="gemini-star" cx="47" cy="50" r="1.5"></circle>
+            <circle class="gemini-star" cx="65" cy="64" r="2.2"></circle>
+            <circle class="gemini-star" cx="60" cy="75" r="1.5"></circle>
+          </g>
+        </svg>
+      </div>
+    </div>
+
     <main class="page">
       <div class="language-switch-wrap">
         <button class="language-toggle" type="button" aria-label="Switch to Chinese" aria-pressed="false">
@@ -66,7 +94,7 @@
           <h1 data-i18n="display-name">Hanxin Zhang</h1>
           <p class="email">hz273 [at] leicester [dot] ac [dot] uk</p>
           <p data-i18n="bio-current">
-            I am a second-year CS PhD student at the University of Leicester (UoL), UK,
+            <span class="greeting-wave" aria-label="Hiiii!"><span class="greeting-letter" aria-hidden="true">H</span><span class="greeting-letter" aria-hidden="true">i</span><span class="greeting-letter" aria-hidden="true">i</span><span class="greeting-letter" aria-hidden="true">i</span><span class="greeting-letter" aria-hidden="true">i</span><span class="greeting-letter" aria-hidden="true">!</span></span> I am a second-year CS PhD student at the University of Leicester (UoL), UK,
             advised by <a href="https://le.ac.uk/people/daniel-hao" target="_blank" rel="noopener noreferrer">Dr Daniel Zhou Hao</a>
             and <a href="https://www.birmingham.ac.uk/staff/profiles/metallurgy/dong-hongbiao" target="_blank" rel="noopener noreferrer">Professor Hongbiao Dong FREng</a>,
             affiliated with <a href="https://www.danilab.org/" target="_blank" rel="noopener noreferrer">DANiLab</a> in
@@ -223,7 +251,7 @@
         en: {
           kicker: 'CS PhD Student / Embodied AI',
           'display-name': 'Hanxin Zhang',
-          'bio-current': 'I am a second-year CS PhD student at the University of Leicester (UoL), UK, advised by <a href="https://le.ac.uk/people/daniel-hao" target="_blank" rel="noopener noreferrer">Dr Daniel Zhou Hao</a> and <a href="https://www.birmingham.ac.uk/staff/profiles/metallurgy/dong-hongbiao" target="_blank" rel="noopener noreferrer">Professor Hongbiao Dong FREng</a>, affiliated with <a href="https://www.danilab.org/" target="_blank" rel="noopener noreferrer">DANiLab</a> in the School of Computing and Mathematical Sciences.',
+          'bio-current': '<span class="greeting-wave" aria-label="Hiiii!"><span class="greeting-letter" aria-hidden="true">H</span><span class="greeting-letter" aria-hidden="true">i</span><span class="greeting-letter" aria-hidden="true">i</span><span class="greeting-letter" aria-hidden="true">i</span><span class="greeting-letter" aria-hidden="true">i</span><span class="greeting-letter" aria-hidden="true">!</span></span> I am a second-year CS PhD student at the University of Leicester (UoL), UK, advised by <a href="https://le.ac.uk/people/daniel-hao" target="_blank" rel="noopener noreferrer">Dr Daniel Zhou Hao</a> and <a href="https://www.birmingham.ac.uk/staff/profiles/metallurgy/dong-hongbiao" target="_blank" rel="noopener noreferrer">Professor Hongbiao Dong FREng</a>, affiliated with <a href="https://www.danilab.org/" target="_blank" rel="noopener noreferrer">DANiLab</a> in the School of Computing and Mathematical Sciences.',
           'bio-previous': 'Previously, I completed both my bachelor\'s and master\'s studies at the University of Science and Technology Beijing (USTB), receiving a bachelor\'s degree in Business and a master\'s degree in Computer Technology. During my undergraduate studies, I was also a professional Chinese University Basketball Association (CUBA) player on the USTB basketball team<span class="hobby-token"><svg class="hobby-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#bio-basketball"></use></svg></span>.',
           'research-heading': 'Research',
           'research-copy': 'I am interested in <strong>robotic brains</strong>, including vision-language-action (VLA) models, world model (WM), world action models (WAM), and human-robot interaction (HRI), toward advancing embodied intelligence.',
@@ -240,7 +268,7 @@
         zh: {
           kicker: '计算机科学博士生 / 具身智能',
           'display-name': '张含鑫',
-          'bio-current': '我是英国莱斯特大学（UoL）计算机科学二年级博士生，师从 <a href="https://le.ac.uk/people/daniel-hao" target="_blank" rel="noopener noreferrer">Dr Daniel Zhou Hao</a> 和 <a href="https://www.birmingham.ac.uk/staff/profiles/metallurgy/dong-hongbiao" target="_blank" rel="noopener noreferrer">Professor Hongbiao Dong FREng</a>，隶属于计算机与数学科学学院的 <a href="https://www.danilab.org/" target="_blank" rel="noopener noreferrer">DANiLab</a>。',
+          'bio-current': '<span class="greeting-wave" aria-label="嗨！"><span class="greeting-letter" aria-hidden="true">嗨</span><span class="greeting-letter" aria-hidden="true">！</span></span>我是英国莱斯特大学（UoL）计算机科学二年级博士生，师从 <a href="https://le.ac.uk/people/daniel-hao" target="_blank" rel="noopener noreferrer">Dr Daniel Zhou Hao</a> 和 <a href="https://www.birmingham.ac.uk/staff/profiles/metallurgy/dong-hongbiao" target="_blank" rel="noopener noreferrer">Professor Hongbiao Dong FREng</a>，隶属于计算机与数学科学学院的 <a href="https://www.danilab.org/" target="_blank" rel="noopener noreferrer">DANiLab</a>。',
           'bio-previous': '此前，我在北京科技大学（USTB）完成本科与硕士学习，并获得商学学士学位和计算机技术硕士学位。我也曾效力于北京科技大学校篮球队，参加CUBA中国大学生篮球联赛一级联赛<span class="hobby-token"><svg class="hobby-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#bio-basketball"></use></svg></span>。',
           'research-heading': '研究方向',
           'research-copy': '我的研究方向聚焦于<strong>机器人大脑</strong>，包括“视觉-语言-动作模型（VLA）”、“世界模型（WM）”、“世界动作模型（WAM）”，以及“人机交互（HRI）”，致力于推动具身智能的发展。',
@@ -260,8 +288,130 @@
       const floatingLanguageWrap = document.querySelector('.floating-language-wrap');
       const topLanguageSwitch = document.querySelector('.language-switch-wrap');
       const translatableElements = document.querySelectorAll('[data-i18n]');
+      const greetingMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+      const sideConstellation = document.querySelector('.constellation');
       let isTopLanguageVisible = true;
       let currentLanguage = 'en';
+
+      function triggerGreetingWave() {
+        if (greetingMotionQuery.matches || document.hidden) {
+          return;
+        }
+
+        const greeting = document.querySelector('.greeting-wave');
+        if (!greeting) {
+          return;
+        }
+
+        greeting.classList.remove('is-waving');
+        void greeting.offsetWidth;
+        greeting.classList.add('is-waving');
+        window.setTimeout(() => {
+          greeting.classList.remove('is-waving');
+        }, 980);
+      }
+
+      function scheduleRandomGreetingWave() {
+        const delay = 8000 + Math.random() * 10000;
+        window.setTimeout(() => {
+          triggerGreetingWave();
+          scheduleRandomGreetingWave();
+        }, delay);
+      }
+
+      function placeConstellation(constellation) {
+        const pageBounds = document.querySelector('.page')?.getBoundingClientRect();
+        const particleBounds = document.querySelector('.particle-current')?.getBoundingClientRect();
+        const width = 220;
+        const height = 168;
+        const margin = 20;
+
+        if (!pageBounds) {
+          return false;
+        }
+
+        const sideOptions = [
+          {
+            min: margin,
+            max: pageBounds.left - width - margin
+          },
+          {
+            min: pageBounds.right + margin,
+            max: window.innerWidth - width - margin
+          }
+        ]
+          .map((side) => ({
+            ...side,
+            available: side.max - side.min
+          }))
+          .filter((side) => side.available >= 0);
+
+        const particleTop = particleBounds ? particleBounds.top : Number.POSITIVE_INFINITY;
+        const bottomLimit = Math.min(window.innerHeight - margin, particleTop - margin);
+        const minTop = Math.max(margin, pageBounds.top + 16);
+        const maxTop = Math.min(bottomLimit - height, pageBounds.bottom - height - 16);
+
+        if (!sideOptions.length || maxTop - minTop < 20 || window.innerWidth < 980) {
+          constellation.classList.remove('is-visible');
+          return false;
+        }
+
+        const side = sideOptions[Math.floor(Math.random() * sideOptions.length)];
+        const left = side.min + Math.random() * side.available;
+        const top = minTop + Math.random() * (maxTop - minTop);
+        const scale = 0.86 + Math.random() * 0.2;
+        const rotate = (Math.random() - 0.5) * 3;
+        constellation.style.setProperty('--constellation-left', `${left}px`);
+        constellation.style.setProperty('--constellation-top', `${top}px`);
+        constellation.style.setProperty('--constellation-scale', `${scale}`);
+        constellation.style.setProperty('--constellation-rotate', `${rotate}deg`);
+        return true;
+      }
+
+      function showConstellation(constellation, delay = 0) {
+        if (!constellation) {
+          return;
+        }
+
+        window.setTimeout(() => {
+          constellation.classList.remove('is-visible');
+
+          if (!placeConstellation(constellation)) {
+            return;
+          }
+
+          window.requestAnimationFrame(() => {
+            constellation.classList.add('is-visible');
+          });
+
+          window.setTimeout(() => {
+            constellation.classList.remove('is-visible');
+          }, 9800 + Math.random() * 2600);
+        }, delay);
+      }
+
+      function scheduleConstellations() {
+        if (!sideConstellation) {
+          return;
+        }
+
+        if (greetingMotionQuery.matches) {
+          if (placeConstellation(sideConstellation)) {
+            sideConstellation.classList.add('is-visible');
+          }
+          return;
+        }
+
+        showConstellation(sideConstellation);
+
+        window.setInterval(() => {
+          showConstellation(sideConstellation);
+        }, 15800);
+      }
+
+      window.addEventListener('resize', () => {
+        sideConstellation?.classList.remove('is-visible');
+      }, { passive: true });
 
       function setLanguage(language) {
         currentLanguage = language;
@@ -307,6 +457,9 @@
       }
 
       syncFloatingLanguageVisibility();
+      window.setTimeout(triggerGreetingWave, 780);
+      scheduleRandomGreetingWave();
+      scheduleConstellations();
 
       const imageTriggers = document.querySelectorAll('.image-trigger, .profile-trigger, .lightbox-video-link');
       const publicationItems = document.querySelectorAll('.item');
